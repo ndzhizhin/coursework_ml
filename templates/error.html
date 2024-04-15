@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .error-container {
+            margin-top: 50px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF6347;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h2>An error occurred</h2>
+        <p class="error-message">{{ error }}</p>
+        <a href="/" class="back-button">Go back to upload page</a>
+    </div>
+</body>
+</html>

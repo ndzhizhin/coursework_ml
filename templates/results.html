@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Recognition Results</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        /* Style the buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #42AAFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0000ff;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        @font-face {
+          font-family: 'ISOCpeur';
+          src: url('fonts/ISOCPEUR.ttf') format('truetype');
+        }
+    </style>
+</head>
+<body>
+    <h1>Emotion Recognition Results</h1>
+    <p><b>Predicted Emotion:</b> {{ predicted_emotion }}</p>
+    <p><b>Sentiment:</b> {{ sentiment }}</p>
+    <p><b>Intensity:</b> {{ intensity }}</p>
+    <p><b>Accuracy of our model on test data:</b> {{ acc }}%</p>
+
+    <img src="data:image/png;base64,{{ loss_img_data_base64 }}" alt="Training & Testing Loss">
+
+    <img src="data:image/png;base64,{{ cm_img_data_base64 }}" alt="Confusion Matrix">
+
+    <h2>Classification Report:</h2>
+    <pre>{{ class_rep }}</pre>
+
+    <h2>Example of predictions:</h2>
+    {{ df | safe }}
+
+    <br>
+
+    <div class="button-container">
+        <a href="{{ url_for('get_download_link') }}" class="button">Download Results</a>
+    </div>
+</body>
+</html>
